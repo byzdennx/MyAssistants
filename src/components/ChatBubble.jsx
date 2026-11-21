@@ -124,28 +124,3 @@ function FileManifest({ message, totalBytes }) {
     </div>
   );
 }
-
-// Indikator "sedang menulis": tiga titik tinta yang menyala bergantian (tanpa membal).
-export function ThinkingBubble({ wide = false }) {
-  const t = useT();
-  return (
-    <article className="fade-in flex flex-col items-start gap-1.5" aria-live="polite">
-      <p className="eyebrow flex items-center gap-2 pl-0.5">
-        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 bg-terracotta" />
-        <span>MyAssistants</span>
-      </p>
-      <div className={cx('glass rounded-md rounded-bl-none px-5 py-3.5', wide && 'w-full')}>
-        <span className="font-serif text-sm italic text-ink-soft">{t('convo.thinking')}</span>
-        <span className="ml-1.5 inline-flex gap-1 align-middle" aria-hidden="true">
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="inline-block h-1 w-1 rounded-full bg-ink-soft"
-              style={{ animation: 'ink-dot 1.2s ease-in-out infinite', animationDelay: `${i * 0.2}s` }}
-            />
-          ))}
-        </span>
-      </div>
-    </article>
-  );
-}
