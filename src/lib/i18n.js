@@ -359,7 +359,7 @@ const id = {
   'error.no_stream': 'Server tidak mengembalikan stream.',
 
   'settings.serverKeys': 'API key dikelola di server',
-  'settings.serverKeys.desc': 'Semua panggilan AI lewat /api/chat dan /api/image memakai key dari environment variable server (NEKOLABS_API_KEY, OPENROUTER_API_KEY, CHEAPLLM_API_KEY, KENARI_API_KEY). Tidak ada key di browser.',
+  'settings.serverKeys.desc': 'Semua panggilan AI memakai key dari environment variable server.',
 
   'vision.mode': 'Mode halaman Vision',
   'vision.mode.ask': 'Tanya',
@@ -728,7 +728,7 @@ const en = {
   'vision.readFail': '{name}: could not be read.',
   'vision.badUrl': 'URL must start with https://',
 
-  'error.missing_env_key': 'The provider API key is not set on the server (env). Contact the maintainer.',
+  'error.missing_env_key': 'The provider API key is not set on the server. Contact the maintainer.',
   'error.unknown_model': 'Unknown model.',
   'error.model_not_vision': 'That model does not support images. Pick a vision model on this page.',
   'error.upstream_auth': 'Server key rejected by the provider (401/403).',

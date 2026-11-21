@@ -193,13 +193,6 @@ function SettingsTab() {
       <Row id={typeId} title={t('settings.typewriter')} desc={t('settings.typewriter.desc')}>
         <Toggle checked={s.typewriter} labelledBy={typeId} onChange={(typewriter) => updateSettings({ typewriter })} />
       </Row>
-
-      <Row title={t('settings.serverKeys')} desc={t('settings.serverKeys.desc')}>
-        <span className="inline-flex max-w-xs flex-wrap items-center gap-x-2 gap-y-1 rounded-sm border border-dashed border-rule-strong px-3 py-2 font-mono text-[0.68rem] leading-relaxed text-ink-soft">
-          <Icon name="eye" size={13} />
-          NEKOLABS_API_KEY · OPENROUTER_API_KEY · CHEAPLLM_API_KEY · KENARI_API_KEY
-        </span>
-      </Row>
     </GlassCard>
   );
 }
