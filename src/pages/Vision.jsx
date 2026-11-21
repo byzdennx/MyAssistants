@@ -30,8 +30,8 @@ import ImageTools from '../components/ImageTools';
 import { truncate, uid, relativeTime, formatTime } from '../lib/utils';
 import { useQuotaModal } from '../components/QuotaModal';
 
-const IMAGE_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];
-const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
+const IMAGE_TYPES = ['image/png', 'image/jpg', 'image/webp', 'image/gif'];
+const MAX_IMAGE_BYTES = 25 * 1024 * 1024;
 
 function fileToDataUrl(file) {
   return new Promise((resolve, reject) => {
