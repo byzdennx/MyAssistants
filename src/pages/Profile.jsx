@@ -193,6 +193,9 @@ function SettingsTab() {
       <Row id={typeId} title={t('settings.typewriter')} desc={t('settings.typewriter.desc')}>
         <Toggle checked={s.typewriter} labelledBy={typeId} onChange={(typewriter) => updateSettings({ typewriter })} />
       </Row>
+
+      <Row title={t('settings.serverKeys')} desc={t('settings.serverKeys.desc')}>
+      </Row>
     </GlassCard>
   );
 }
