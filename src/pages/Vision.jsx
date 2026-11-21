@@ -448,10 +448,6 @@ export default function Vision({ route }) {
                     e.target.value = '';
                   }}
                 />
-                <button type="button" className="btn btn-quiet" onClick={() => fileRef.current?.click()} disabled={urlOnly} title={t('vision.upload')} aria-label={t('vision.upload')}>
-                  <Icon name="upload" size={14} />
-                  <span className="hidden sm:inline">{t('vision.upload')}</span>
-                </button>
                 <button type="button" className="btn btn-quiet" onClick={() => setShowUrl((v) => !v)} aria-pressed={showUrl} title={t('vision.urlLabel')}>
                   <Icon name="globe" size={14} />
                   <span className="hidden sm:inline">URL</span>
