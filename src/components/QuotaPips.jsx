@@ -1,7 +1,7 @@
 import { cx } from '../lib/utils';
 
 // Lima kotak kecil seperti tanda hitung: terisi = sisa kuota.
-export default function QuotaPips({ remaining, limit = 5, className }) {
+export default function QuotaPips({ remaining, limit = 24, className }) {
   return (
     <span className={cx('inline-flex items-center gap-[3px]', className)} aria-hidden="true">
       {Array.from({ length: limit }, (_, i) => (

@@ -124,3 +124,13 @@ function FileManifest({ message, totalBytes }) {
     </div>
   );
 }
+
+// Indikator "sedang menulis": tiga titik tinta yang menyala bergantian (tanpa membal).
+export function ThinkingBubble({ wide = false }) {
+  const t = useT();
+  return (
+    <article className="fade-in flex flex-col items-start gap-1.5" aria-live="polite">
+      <p className="eyebrow flex items-center gap-2 pl-0.5"></p>
+    </article>
+  );
+}
