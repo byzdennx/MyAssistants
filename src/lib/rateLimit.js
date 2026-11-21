@@ -5,7 +5,7 @@
 
 import { getRate, setRate } from './storage';
 
-export const LIMIT = 5;
+export const LIMIT = 24;
 export const WINDOW_MS = 24 * 60 * 60 * 1000;
 
 export function computeQuota(timestamps, now = Date.now()) {
