@@ -146,4 +146,4 @@ Palet: krem `#F4EDE4` / `#EDE4D3`, tinta `#2B2118` / `#3D2E22`, terakota `#B8654
 Font: Instrument Serif & Fraunces (judul), IBM Plex Sans (isi), JetBrains Mono (kode).
 Radius 2–8px, animasi hanya fade + slide 200 ms, latar berupa bentuk statis. Tema: terang, sepia, gelap.
 
-© 2025 EpannXD
+© 2026 EpannXD

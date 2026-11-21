@@ -91,7 +91,7 @@ export default function ConversationSidebar({ mode, conversations, activeId, ope
         </nav>
 
         <p className="hidden border-t border-rule px-4 py-3 font-serif text-[0.7rem] italic text-ink-faint md:block">
-          Crafted with care by EpannXD · © 2025
+          Crafted with care by EpannXD · © 2026
         </p>
       </aside>
     </>

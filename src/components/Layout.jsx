@@ -115,7 +115,7 @@ function Footer() {
       <VintageDivider />
       <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
         <p className="font-serif text-[0.95rem] italic text-ink-soft">
-          Crafted with care by <span className="text-accent">EpannXD</span> · © 2025
+          Crafted with care by <span className="text-accent">EpannXD</span> · © 2026
         </p>
         <p className="text-xs text-ink-faint">{t('footer.note')}</p>
       </div>
