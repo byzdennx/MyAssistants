@@ -56,8 +56,6 @@ export const PROVIDERS = {
 export const MODELS = [
   // Nekolabs
   { id: 'claude', provider: 'nl', label: 'Claude', supportsVision: false, endpoint: '/ai/claude', supportsSearch: true },
-  { id: 'beam', provider: 'nl', label: 'Beam', supportsVision: false, endpoint: '/ai/beam' },
-  { id: 'gemma', provider: 'nl', label: 'Gemma', supportsVision: false, endpoint: '/ai/gemma' },
   {
     id: 'vision',
     provider: 'nl',
