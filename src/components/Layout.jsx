@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Link } from '../router';
 import { Icon } from './icons';
 import QuotaPips from './QuotaPips';
@@ -81,11 +82,25 @@ function Header({ route }) {
 function MobileTabs({ route }) {
   const t = useT();
   const current = route.segments[0] || '';
+  const [placement, setPlacement] = useState(() => localStorage.getItem('ma_nav_style') || 'horizontal');
+  const [side, setSide] = useState(() => localStorage.getItem('ma_nav_side') || 'right');
+  const cycleStyle = () => {
+    const next = placement === 'horizontal' ? 'vertical' : placement === 'vertical' ? 'bar' : 'horizontal';
+    setPlacement(next);
+    localStorage.setItem('ma_nav_style', next);
+  };
+  const cycleSide = () => {
+    const next = side === 'right' ? 'left' : 'right';
+    setSide(next);
+    localStorage.setItem('ma_nav_side', next);
+  };
+  const floating = placement !== 'bar';
   return (
     <nav
-      className="glass-bar fixed inset-x-0 bottom-0 z-40 grid h-14 grid-cols-6 border-t-[3px] border-double border-rule-strong md:hidden"
+      className={cx('mobile-nav glass-bar fixed z-40 md:hidden', floating ? `mobile-nav-${placement} ${side === 'right' ? 'right-3' : 'left-3'}` : 'inset-x-0 bottom-0 grid h-14 grid-cols-6 border-t-[3px] border-double border-rule-strong')}
       aria-label={t('nav.main')}
     >
+      <button type="button" className="nav-customize" onClick={cycleStyle} onContextMenu={(e) => { e.preventDefault(); cycleSide(); }} aria-label="Change navigation layout" title="Tap: layout · Long press/right click: side">⋯</button>
       {NAV.map((item) => {
         const active = current === item.seg;
         return (
@@ -94,7 +109,7 @@ function MobileTabs({ route }) {
             to={item.to}
             aria-current={active ? 'page' : undefined}
             className={cx(
-              'relative flex flex-col items-center justify-center gap-0.5 text-[0.66rem] tracking-wide transition-colors duration-200',
+              'mobile-nav-item relative flex flex-col items-center justify-center gap-0.5 text-[0.66rem] tracking-wide transition-colors duration-200',
               active ? 'text-ink' : 'text-ink-faint',
             )}
           >

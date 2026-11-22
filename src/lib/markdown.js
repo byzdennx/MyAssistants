@@ -184,7 +184,8 @@ export function extractCoderFiles(text) {
       split.forEach((f) => map.set(f.path, f));
     } else {
       const fname = extractFilename(tok.text, info);
-      const path = normalizePath(fname) || `snippet-${++unnamed}.${extForLang(lang)}`;
+      const inferredName = info.match(/[\w.-]+\.[a-z0-9]{1,8}/i)?.[0];
+      const path = normalizePath(fname || inferredName) || `generated-${++unnamed}.${extForLang(lang)}`;
       map.set(path, { path, content: tok.text });
     }
   }

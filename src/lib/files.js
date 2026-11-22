@@ -364,7 +364,9 @@ export function filesFromBlock({ code, lang, filename }) {
   const split = splitMultiFile(code);
   if (split.length) return { files: split, named: true };
   if (filename) return { files: [{ path: normalizePath(filename) || filename, content: code }], named: true };
-  return { files: [{ path: `snippet.${extForLang(lang)}`, content: code }], named: false };
+  const inferredName = String(lang || '').match(/[\w.-]+\.[a-z0-9]{1,8}/i)?.[0];
+  const path = normalizePath(inferredName || '') || `generated.${extForLang(lang)}`;
+  return { files: [{ path, content: code }], named: Boolean(inferredName) };
 }
 
 /* ── export ───────────────────────────────────────────────── */

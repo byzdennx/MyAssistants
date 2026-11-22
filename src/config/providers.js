@@ -54,16 +54,6 @@ export const PROVIDERS = {
 //   supportsSearch ikut mengirim conversationId/deviceId/needSearch (toggle "Cari di web")
 //   imageInput     'url' → hanya menerima URL gambar https (bukan unggahan/data URL)
 export const MODELS = [
-  // Nekolabs
-  { id: 'claude', provider: 'nl', label: 'Claude', supportsVision: false, endpoint: '/ai/claude', supportsSearch: true },
-  {
-    id: 'vision',
-    provider: 'nl',
-    label: 'Neko Vision (URL gambar)',
-    supportsVision: true,
-    endpoint: '/image/vision',
-    imageInput: 'url',
-  },
   // OpenRouter
   {
     id: 'nvidia/nemotron-3-ultra-550b-a55b:free',
@@ -114,14 +104,14 @@ export const MODELS = [
 // Alat gambar Nekolabs (GET {baseUrl}{endpoint}?url=…). Dipakai /api/image dan halaman Vision.
 // options: parameter tambahan yang boleh dikirim.
 export const IMAGE_TOOLS = [
-  { id: 'restore', provider: 'nekolabs', endpoint: '/image/restore', options: ['upscale'] },
-  { id: 'enhance', provider: 'nekolabs', endpoint: '/image/enhance', options: ['upscale', 'background'] },
-  { id: 'rembg', provider: 'nekolabs', endpoint: '/image/rembg', options: [] },
+  { id: 'restore', provider: 'nl', endpoint: '/image/restore', options: ['upscale'] },
+  { id: 'enhance', provider: 'nl', endpoint: '/image/enhance', options: ['upscale', 'background'] },
+  { id: 'rembg', provider: 'nl', endpoint: '/image/rembg', options: [] },
 ];
 export const UPSCALE_VALUES = [2, 4];
 
 // Default seperti sebelum migrasi: Chat lewat Nekolabs, Coder lewat OpenRouter.
-export const DEFAULT_CHAT_MODEL = 'nekolabs:claude';
+export const DEFAULT_CHAT_MODEL = 'beam-1-0:free';
 export const DEFAULT_CODER_MODEL = 'openrouter:nvidia/nemotron-3-ultra-550b-a55b:free';
 export const DEFAULT_VISION_MODEL = 'kenari:glm-4-6v-flash:free';
 

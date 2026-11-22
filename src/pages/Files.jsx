@@ -233,6 +233,7 @@ export default function Files() {
     return (
       <div className="flex h-full flex-col">
         <div className="flex h-12 shrink-0 items-center gap-1.5 border-b border-rule px-3">
+          {file && <button type="button" className="icon-btn" onClick={() => select(project.id, null)} aria-label={t('common.back')}><Icon name="chevron-right" size={17} className="rotate-180" /></button>}
           <select
             className="field min-w-0 flex-1 !py-1.5 !text-[0.82rem]"
             value={project?.id || ''}
@@ -266,25 +267,18 @@ export default function Files() {
         </div>
         <input ref={importRef} type="file" accept="application/json,.json" className="sr-only" tabIndex={-1} aria-hidden="true" onChange={onImport} />
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-2 py-2">
-          {project?.files.length ? (
-            <FileTree
-              files={project.files}
-              activePath={null}
-              readOnly
-              onSelect={(path) => {
-                select(project.id, path);
-                toast({ kind: 'info', message: t('files.mobile.note'), duration: 3200 });
-              }}
-            />
-          ) : (
-            <p className="px-4 py-8 text-center font-serif text-sm italic text-ink-faint">{t('files.projectEmpty')}</p>
-          )}
-        </div>
-
-        <p className="shrink-0 border-t border-rule px-4 py-3 text-center font-serif text-xs italic leading-relaxed text-ink-faint">
-          {t('files.mobile.note')}
-        </p>
+        {file ? (
+          <Editor key={`${project.id}:${file.path}`} project={project} file={file} onRename={() => onRenameFile(file.path)} onDelete={() => onDeleteFile(file.path)} />
+        ) : (
+          <div className="min-h-0 flex-1 overflow-y-auto px-2 py-2">
+            {project?.files.length ? (
+              <FileTree files={project.files} activePath={null} onSelect={(path) => select(project.id, path)} onRename={onRenameFile} onDelete={onDeleteFile} />
+            ) : (
+              <p className="px-4 py-8 text-center font-serif text-sm italic text-ink-faint">{t('files.projectEmpty')}</p>
+            )}
+            <button type="button" className="btn btn-line mt-3 w-full" onClick={onNewFile}><Icon name="file-plus" size={14} />{t('files.newFile')}</button>
+          </div>
+        )}
       </div>
     );
   }
